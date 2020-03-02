@@ -31,14 +31,19 @@ document.getElementById("btn1").onclick = function(){
 }
 
 var maxTemp = -999;
-
+var avgTemp = 0;
+var count = 0;
 btnTask2.addEventListener('click', function(){
 	inct.remove();
 	for (var avg in term) {
+		avgTemp += term[avg];
 		document.write(avg + ': ' + term[avg] + '   ');
 		if (maxTemp < term[avg]) {
 			maxTemp = term[avg];
 		}
+		count++;
 	}
+	avgTemp /= count;
 	document.write('Максимальная температура: ' + maxTemp);
+	document.write(' Средняя температура: ' + avgTemp);
 });
